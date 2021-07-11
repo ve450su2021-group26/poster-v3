@@ -1,4 +1,4 @@
-## Want to use this project?
+How to run this project?
 
 Run the server-side Flask app in one terminal window:
 
