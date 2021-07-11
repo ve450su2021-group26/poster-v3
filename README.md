@@ -16,5 +16,4 @@ Run the client-side Vue app in a different terminal window:
     $ npm install
     $ npm run serve
     
-
     Navigate to [http://localhost:8080](http://localhost:8080)
