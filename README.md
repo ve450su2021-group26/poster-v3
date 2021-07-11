@@ -1,4 +1,4 @@
-##How to run this project?
+<font size=5>How to run this project?</font>
 
 Run the server-side Flask app in one terminal window:
 
