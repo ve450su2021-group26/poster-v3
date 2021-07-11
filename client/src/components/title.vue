@@ -14,27 +14,32 @@
     <br>
 
     <my_carousel></my_carousel>
+
     <br>
 
-    <uploader @toParent = "getPayload"></uploader>
-    <div>the payload is: {{payload}}</div>
+    <uploader/> <!--@toParent = "getPayload"-->
+<!--    <div>the payload is: {{payload}}</div>-->
     <div>the result is: {{result}}</div>
 
-    <br>
     <br>
     <p>All user photo are automatically deleted
       <br>
       after being processed
     </p>
-    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">
-      Upload</button>
+<!--    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">-->
+<!--      Upload</button>-->
     <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
-    Try demo photo</button>
+    Try demo photo
+    </button>
     <table class="table table-hover">
-      <thead>Results</thead>
+      <thead>
+      Results
+      </thead>
       <tbody>
-      <tr v-for="(classification, index) in result" :key="index">
-        <td>{{classification}}</td>
+      <tr v-for="(c, index) in result" :key="index">
+        <td>
+          {{c}}
+        </td>
       </tr>
       </tbody>
     </table>
@@ -53,7 +58,7 @@ export default {
   name: 'Title',
   data() {
     return {
-      payload: [],
+      // payload: [],
       result: [],
     };
   },
@@ -62,24 +67,18 @@ export default {
   },
   methods: {
     // eslint-disable-next-line camelcase
-    getPayload(child_payload) {
-      // eslint-disable-next-line camelcase
-      this.payload = child_payload;
-    },
+    // getPayload(child_payload) {
+    //   // eslint-disable-next-line camelcase
+    //   console.log(child_payload);
+    //   // eslint-disable-next-line camelcase
+    //   this.payload = child_payload;
+    // },
     getResult() {
       const path = 'http://localhost:5000/algorithm';
       axios.get(path)
         .then((res) => {
           this.result = res.data.result;
         })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.error(error);
-        });
-    },
-    postLoad(input) {
-      const path = 'http://localhost:5000/algorithm';
-      axios.post(path, input)
         .catch((error) => {
           // eslint-disable-next-line
           console.error(error);
