@@ -50,8 +50,6 @@ output = {}
 @app.route('/algorithm', methods=['GET', 'POST'])
 @cross_origin()
 def predict():
-    output = {}
-    output['result'] = RESULT
     if request.method == 'POST':
         post_data = request.get_json()
         result = inference_model.predict_from_raw(json_data=post_data)
