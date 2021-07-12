@@ -47,7 +47,6 @@
 </template>
 
 <script>
-// import Gallery from '@/views/Gallery.vue';
 // eslint-disable-next-line camelcase,import/extensions
 import axios from 'axios';
 // eslint-disable-next-line import/extensions,camelcase
