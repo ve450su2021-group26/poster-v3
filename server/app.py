@@ -1,7 +1,6 @@
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS
 from flask_cors import cross_origin
-import uuid
 import algorithm
 # configuration
 DEBUG = True
