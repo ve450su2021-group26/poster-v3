@@ -12,11 +12,10 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 RESULT = [1,3,5]
+output = {}
 @app.route('/algorithm', methods=['GET', 'POST'])
 @cross_origin()
 def call_algorithm():
-    output = {}
-    output['result'] = RESULT
     if request.method == 'POST':
         post_data = request.get_json()
         result = algorithm.test(post_data)

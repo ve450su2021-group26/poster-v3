@@ -1,5 +1,5 @@
 <template>
-  <iframe src="../three/gallery.html"></iframe>
+
 </template>
 
 <script>

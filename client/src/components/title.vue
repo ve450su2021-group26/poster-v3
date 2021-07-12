@@ -28,7 +28,7 @@
     </p>
 <!--    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">-->
 <!--      Upload</button>-->
-    <button type='button' class="btn btn-primary btn-lg" @click="getResult();show()">
+    <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
     Try demo photo
     </button>
     <table class="table table-hover">
