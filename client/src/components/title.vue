@@ -28,7 +28,7 @@
     </p>
 <!--    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">-->
 <!--      Upload</button>-->
-    <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
+    <button type='button' class="btn btn-primary btn-lg" @click="getResult();show()">
     Try demo photo
     </button>
     <table class="table table-hover">
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+// import Gallery from '@/views/Gallery.vue';
 // eslint-disable-next-line camelcase,import/extensions
 import axios from 'axios';
 // eslint-disable-next-line import/extensions,camelcase
@@ -63,7 +64,9 @@ export default {
     };
   },
   components: {
-    my_carousel, uploader,
+    // Gallery,
+    my_carousel,
+    uploader,
   },
   methods: {
     // eslint-disable-next-line camelcase
@@ -83,6 +86,10 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         });
+    },
+    show() {
+      const routeData = this.$router.resolve({ path: '/gallery' });
+      window.open(routeData.href, '_blank');
     },
   },
   // created() {
