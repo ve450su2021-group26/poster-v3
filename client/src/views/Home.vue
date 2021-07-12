@@ -6,7 +6,6 @@
         <Title/>
       </div>
     </div>
-
   </div>
 </template>
 
