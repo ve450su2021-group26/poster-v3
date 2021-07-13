@@ -4,7 +4,7 @@ Run the server-side Flask app in one terminal window:
 
     
     $ cd server
-    $ python3.9 -m venv env
+    $ python -m venv env
     $ source env/bin/activate
     (env)$ pip install -r requirements.txt
     (env)$ python app.py
