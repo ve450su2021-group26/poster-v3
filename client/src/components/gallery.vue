@@ -80,6 +80,7 @@ export default {
       document.body.appendChild(renderer.domElement);
       //add orbital controls to the camera
       controls = new OrbitControls( camera, renderer.domElement );
+      controls.enableZoom = false;
       controls.update();
       //initialize raycaster
       rayCaster = new THREE.Raycaster();

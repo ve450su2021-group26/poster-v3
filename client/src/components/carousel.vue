@@ -28,28 +28,56 @@
               width="1024"
           >
         </template>
-      ></b-carousel-slide>
+      </b-carousel-slide>
       <b-carousel-slide
+          caption="Poster 2"
+          text="Huawei Watch GT price starting from 150 USD along with battery life of up 14 days"
+          >
+        <template #img>
+          <img
+              alt="image slot"
+              class="d-block img-fluid w-100"
+              height="480"
+              src="../assets/poster2.jpg"
+              width="1024"
+          >
+        </template>
+      </b-carousel-slide>
+            <b-carousel-slide
+          caption="Poster 3"
+          text="The next generation sports car is under development."
+          >
+        <template #img>
+          <img
+              alt="image slot"
+              class="d-block img-fluid w-100"
+              height="480"
+              src="../assets/poster3.jpg"
+              width="1024"
+          >
+        </template>
+      </b-carousel-slide>
+      <!-- <b-carousel-slide
           caption="First slide"
           img-src="https://picsum.photos/1024/480/?image=52"
           text="Nulla vitae elit libero, a pharetra augue mollis interdum."
       ></b-carousel-slide>
 
       <!-- Slides with custom text -->
-      <b-carousel-slide
+      <!-- <b-carousel-slide
           caption="Second slide"
           img-src="https://picsum.photos/1024/480/?image=54">
         <h1>Hello world!</h1>
       </b-carousel-slide>
 
       <!-- Slides with image only -->
-      <b-carousel-slide
+      <!-- <b-carousel-slide
           caption="Third slide"
-          img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+          img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide> --> -->
 
       <!-- Slides with img slot -->
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide
+      <!-- <b-carousel-slide
           caption="Forth slide">
         <template #img>
           <img
@@ -60,15 +88,15 @@
               width="1024"
           >
         </template>
-      </b-carousel-slide>
+      </b-carousel-slide> -->
 
       <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Fifth Slide" img-alt="Blank image" img-blank>
+      <!-- <b-carousel-slide caption="Fifth Slide" img-alt="Blank image" img-blank>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
           a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
         </p>
-      </b-carousel-slide>
+      </b-carousel-slide> --> -->
     </b-carousel>
     <br>
     <!--    <p class="mt-4">-->

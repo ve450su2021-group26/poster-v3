@@ -10,7 +10,7 @@
                size="lg"
                title="Intelligent Poster Generator">
         <b-form>
-          <h4>What do you want to make a poster of?</h4>
+          <h4>Input image</h4>
           <b-form-file
             v-model="form.img"
             class="mt-3"
@@ -20,7 +20,7 @@
           <div class="mt-3">Selected file: {{ form.img ? form.img.name : '' }}</div>
           <hr>
           <br>
-          <h4>What do you want to say?</h4>
+          <h4>Input text</h4>
           <br>
           <b-form-input
             v-model="form.text"
@@ -28,7 +28,7 @@
           ></b-form-input>
           <hr>
           <br>
-          <h4>What's your ideal color?</h4>
+          <h4>Choose an ideal color</h4>
           <br>
           <b-form-input
             id="color"

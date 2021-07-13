@@ -14,7 +14,7 @@
     <my_carousel></my_carousel>
     <br>
     <uploader/>
-    <div>the result is: {{label0}}, {{label1}}, {{label2}}</div>
+    <div>The result is: {{label0}}, {{label1}}, {{label2}}</div>
     <br>
     <p>All user photo are automatically deleted
       <br>
@@ -50,9 +50,9 @@ export default {
   data() {
     return {
       result: [],
-      label0: 9,
-      label1: 9,
-      label2: 9,
+      label0: "Pending",
+      label1: "Pending",
+      label2: "Pending",
       label_to_txt: {
         0: "Heartwarming", //wenxin
         1: "Tech", //keji
