@@ -16,6 +16,20 @@
     >
       <!-- Text slides with image -->
       <b-carousel-slide
+          caption="Poster 1"
+          text="Put your smartphone aside and let's celebrate the Chinese New Year with families!"
+          >
+        <template #img>
+          <img
+              alt="image slot"
+              class="d-block img-fluid w-100"
+              height="480"
+              src="../assets/poster1.jpg"
+              width="1024"
+          >
+        </template>
+      ></b-carousel-slide>
+      <b-carousel-slide
           caption="First slide"
           img-src="https://picsum.photos/1024/480/?image=52"
           text="Nulla vitae elit libero, a pharetra augue mollis interdum."
