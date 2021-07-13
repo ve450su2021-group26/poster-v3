@@ -1,7 +1,7 @@
 import * as THREE from '../../node_modules/three/build/three.module.js';
-import {PCFSoftShadowMap} from 'three';
+import {PCFSoftShadowMap} from '../../node_modules/three/build/three.module.js';
 import Stats from '../../node_modules/three/examples/jsm/libs/stats.module.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls.js';
 const nameList = ['Wenxin', 'Keji', "Jianyue", "Xiqing", "Qingxin", "Fugu", "Shangwu", "Xuanku", "Menghuan"];
 const candidate = [nameList[Math.floor(Math.random()*10)], nameList[Math.floor(Math.random()*10)], nameList[Math.floor(Math.random()*10)]];
 let camera, scene, renderer, rayCaster, controls;
