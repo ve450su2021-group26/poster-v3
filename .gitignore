@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+!node_modules/simplex-noise/simplex-noise.js
+!node_modules/three/examples/jsm/controls/OrbitControl.js
 env/
 __pycache__
 
