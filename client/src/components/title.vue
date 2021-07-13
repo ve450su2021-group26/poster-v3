@@ -10,24 +10,16 @@
       <br>
       from any image
     </h1>
-
     <br>
-
     <my_carousel></my_carousel>
-
     <br>
-
-    <uploader/> <!--@toParent = "getPayload"-->
-<!--    <div>the payload is: {{payload}}</div>-->
+    <uploader/>
     <div>the result is: {{result}}</div>
-
     <br>
     <p>All user photo are automatically deleted
       <br>
       after being processed
     </p>
-<!--    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">-->
-<!--      Upload</button>-->
     <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
     Try demo photo
     </button>
@@ -47,35 +39,22 @@
 </template>
 
 <script>
-// import Gallery from '@/views/Gallery.vue';
-// eslint-disable-next-line camelcase,import/extensions
 import axios from 'axios';
-// eslint-disable-next-line import/extensions,camelcase
 import my_carousel from './carousel';
-// eslint-disable-next-line import/extensions
 import uploader from './uploader';
 
 export default {
   name: 'Title',
   data() {
     return {
-      // payload: [],
       result: [],
     };
   },
   components: {
-    // Gallery,
     my_carousel,
     uploader,
   },
   methods: {
-    // eslint-disable-next-line camelcase
-    // getPayload(child_payload) {
-    //   // eslint-disable-next-line camelcase
-    //   console.log(child_payload);
-    //   // eslint-disable-next-line camelcase
-    //   this.payload = child_payload;
-    // },
     getResult() {
       const path = 'http://localhost:5000/algorithm';
       axios.get(path)
@@ -87,14 +66,11 @@ export default {
           console.error(error);
         });
     },
-    show() {
-      const routeData = this.$router.resolve({ path: '/gallery' });
-      window.open(routeData.href, '_blank');
-    },
+    // show() {
+    //   const routeData = this.$router.resolve({ path: '/gallery' });
+    //   window.open(routeData.href, '_blank');
+    // },
   },
-  // created() {
-  //   this.getResult();
-  // },
 };
 </script>
 
