@@ -28,9 +28,12 @@
     </p>
 <!--    <button type='button' class="btn btn-primary btn-lg" @click="postLoad(payload)">-->
 <!--      Upload</button>-->
-    <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
-    Try demo photo
-    </button>
+<!--    <button type='button' class="btn btn-primary btn-lg" @click="getResult()">-->
+<!--    Try demo photo-->
+<!--    </button>-->
+    <button class="btn btn-primary btn-lg" @click='$router.push({name: "gallery"})'>进入结果页面</button>
+<!--    <a href='../static/gallery.html'> Try demo photo</a>-->
+<!--    <button @click="jumpHtml">Jump</button>-->
     <table class="table table-hover">
       <thead>
       Results
@@ -87,10 +90,13 @@ export default {
           console.error(error);
         });
     },
-    show() {
-      const routeData = this.$router.resolve({ path: '/gallery' });
-      window.open(routeData.href, '_blank');
-    },
+    // jumpHtml() {
+    //   window.location.href = '../static/gallery.html';
+    // },
+    // show() {
+    //   const routeData = this.$router.resolve({ path: '/gallery' });
+    //   window.open(routeData.href, '_blank');
+    // },
   },
   // created() {
   //   this.getResult();
