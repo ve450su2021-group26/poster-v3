@@ -8,9 +8,7 @@ import router from './router';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-// eslint-disable-next-line import/extensions
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// eslint-disable-next-line import/extensions
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 Vue.use(BootstrapVue);
