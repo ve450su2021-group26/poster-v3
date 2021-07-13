@@ -36,6 +36,7 @@ class BackendInferenceModel(InferenceModel):
         img_response = req.get(BUCKET_URL + '/' + json_data['imgName'])
         img = Image.open(BytesIO(img_response.content))
         text = json_data['text']
+        text = text if text else None
         return self.predict(img, text)
         
 # instantiate the app
@@ -55,6 +56,7 @@ def predict():
         result = inference_model.predict_from_raw(json_data=post_data)
         result = '{},{},{}'.format(result[0], result[1], result[2])
         output['result'] = result
+        # print(output)
     return jsonify(output)
 if __name__ == '__main__':
     app.run()

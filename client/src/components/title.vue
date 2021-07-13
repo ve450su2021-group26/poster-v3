@@ -14,26 +14,27 @@
     <my_carousel></my_carousel>
     <br>
     <uploader/>
-    <div>the result is: {{result}}</div>
+    <div>the result is: {{label0}}, {{label1}}, {{label2}}</div>
     <br>
     <p>All user photo are automatically deleted
       <br>
       after being processed
     </p>
     <button type='button' class="btn btn-primary btn-lg" @click="getResult()">
-    Try demo photo
+    Generate animation effects
     </button>
     <table class="table table-hover">
       <thead>
       Results
       </thead>
-      <tbody>
+      <gallery ref="gallery"></gallery>
+      <!-- <tbody>
       <tr v-for="(c, index) in result" :key="index">
         <td>
           {{c}}
         </td>
       </tr>
-      </tbody>
+      </tbody> -->
     </table>
   </div>
 </template>
@@ -42,17 +43,34 @@
 import axios from 'axios';
 import my_carousel from './carousel';
 import uploader from './uploader';
+import Gallery from './gallery.vue';
 
 export default {
   name: 'Title',
   data() {
     return {
       result: [],
+      label0: 9,
+      label1: 9,
+      label2: 9,
+      label_to_txt: {
+        0: "Heartwarming", //wenxin
+        1: "Tech", //keji
+        2: "Simple", //jianyue
+        3: "Festive", //xiqing
+        4: "Fresh", //qingxin
+        5: "Vintage", //fugu
+        6: "Business", //shangwu
+        7: "Cool", //xuanku
+        8: "Dreamlike", //menghuan
+        9: "Loading",
+      },
     };
   },
   components: {
     my_carousel,
     uploader,
+    Gallery,
   },
   methods: {
     getResult() {
@@ -60,6 +78,12 @@ export default {
       axios.get(path)
         .then((res) => {
           this.result = res.data.result;
+          const resultArr = this.result.split(",");
+          this.label0 = this.label_to_txt[resultArr[0]];
+          this.label1 = this.label_to_txt[resultArr[1]];
+          this.label2 = this.label_to_txt[resultArr[2]];
+          this.$refs.gallery.init(resultArr[0], resultArr[1], resultArr[2]);
+      
         })
         .catch((error) => {
           // eslint-disable-next-line

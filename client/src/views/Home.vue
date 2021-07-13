@@ -12,9 +12,12 @@
 <script>
 import Title from '../components/title.vue';
 import Navbar from '../components/navbar.vue';
-
+// import Gallery from '../components/gallery.vue';
 export default {
   name: 'Home',
+  // components: {
+  //   Title, Navbar, Gallery,
+  // },
   components: {
     Title, Navbar,
   },
