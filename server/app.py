@@ -1,4 +1,5 @@
 import requests as req
+import torch
 
 from img_module.inference_model import ImageInferenceModel
 from text_processing_module.inference_model import TextInferenceModel
@@ -38,16 +39,20 @@ class BackendInferenceModel(InferenceModel):
         text = json_data['text']
         text = text if text else None
         return self.predict(img, text)
-        
+
+
 # instantiate the app
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 inference_model = BackendInferenceModel()
 app = Flask(__name__)
 app.config.from_object(__name__)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
-RESULT = [1,3,5]
+RESULT = [1, 3, 5]
 output = {}
+
+
 @app.route('/algorithm', methods=['GET', 'POST'])
 @cross_origin()
 def predict():
@@ -58,6 +63,7 @@ def predict():
         output['result'] = result
         # print(output)
     return jsonify(output)
+
+
 if __name__ == '__main__':
     app.run()
-    
