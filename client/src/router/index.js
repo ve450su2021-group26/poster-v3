@@ -18,5 +18,40 @@ export default new Router({
       name: 'about',
       component: () => import('../views/About.vue'),
     },
+    {
+      path: '/animation/Business',
+      name: 'business',
+      component: () => import('../components/animation/Business'),
+    },
+    {
+      path: '/animation/Cool',
+      name: 'cool',
+      component: () => import('../components/animation/Cool'),
+    },
+    {
+      path: '/animation/Dreamlike',
+      name: 'dreamlike',
+      component: () => import('../components/animation/Dreamlike'),
+    },
+    {
+      path: '/animation/Festive',
+      name: 'festive',
+      component: () => import('../components/animation/Festive'),
+    },
+    {
+      path: '/animation/Fresh',
+      name: 'fresh',
+      component: () => import('../components/animation/Fresh'),
+    },
+    {
+      path: '/animation/Tech',
+      name: 'tech',
+      component: () => import('../components/animation/Tech'),
+    },
+    {
+      path: '/animation/Vintage',
+      name: 'vintage',
+      component: () => import('../components/animation/Vintage'),
+    },
   ],
 });

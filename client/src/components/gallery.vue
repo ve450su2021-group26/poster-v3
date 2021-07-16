@@ -11,19 +11,12 @@ import {PCFSoftShadowMap} from '../../node_modules/three/build/three.module.js';
 import Stats from '../../node_modules/three/examples/jsm/libs/stats.module.js';
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls.js';
 import opt from '../../node_modules/three/examples/fonts/optimer_bold.typeface.json';
-// import TITLE from '../'
 export default {
   name: 'gallery',
-  // data() {
-  //   return {
-  //     test: 1
-  //   }
-  // },
   methods: {
     init: function (ind_1, ind_2, ind_3) {
       const pointer = new THREE.Vector2();
       const inter = new THREE.Group();
-      // const nameList = ['Wenxin', 'Keji', "Jianyue", "Xiqing", "Qingxin", "Fugu", "Shangwu", "Xuanku", "Menghuan"];
       const nameList = ['Heartwarming', 'Tech', "Simple", "Festive", "Fresh", "Vintage", "Business", "Cool", "Dreamlike"];
       const candidate =  [nameList[ind_1], nameList[ind_2], nameList[ind_3]];
       let camera, scene, controls, stats, renderer, rayCaster, INTERSECTED;
@@ -146,10 +139,6 @@ export default {
             posterPairs[ind].light.intensity = 0.5;
             posterPairs[ind]["text"].material.emissive.setHex( 0xff0000 );
             posterPairs[ind].light.intensity = 0.5;
-            //set the case when some object is selected and the mouse clicked
-            // document.onclick = function (e){
-            //   window.location.href = "/src/three/"+candidate[ind]+"/html";
-            // }
           }
           //recome to the original color
         } else {
@@ -159,6 +148,12 @@ export default {
             posterPairs[ind].light.intensity = 0.1;
             posterPairs[ind]["text"].material.emissive.setHex( 0xffffff );
             INTERSECTED = null;
+          }
+        }
+        document.onclick = function (e){
+          if (INTERSECTED) {
+            let ind = (num*3+8-INTERSECTED.position.z)/3;
+            window.open("/animation/"+candidate[ind]);
           }
         }
         renderer.render(scene, camera);
@@ -197,7 +192,7 @@ export default {
     }
   },
   mounted () {
-    //this.init(1,2,3)
+    //this.init(4,7,8)
   }
 }
 </script>
