@@ -9,7 +9,7 @@ We recommend using Anaconda to manage server-side packages.
 2. Create conda virtual environment:
 
 
-        conda create --name env python=3.9
+        conda create --name env python=3.8
         conda activate env
 
 
