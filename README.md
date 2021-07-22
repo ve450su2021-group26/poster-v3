@@ -9,21 +9,18 @@ We recommend using Anaconda to manage server-side packages.
 2. Create conda virtual environment:
 
 
-        $ conda create --name env
-        $ conda activate env
+        conda create --name env python=3.9
+        conda activate env
 
 
 3. Run the following codes to install packages:
 
-
-        (env)$ conda install pytorch torchvision cudatoolkit -c pytorch
-        (env)$ conda install scikit-learn
-        (env)$ pip install -r requirements.txt
-        (env)$ pip install -r ./text_processing_module/requirements.txt
-
+        pip install -r requirements.txt
 
 4. Boot Flask app: 
-    (env)$ python app.py
+
+        cd server
+        python app.py
 
 
 ## Client-side
