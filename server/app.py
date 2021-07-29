@@ -31,6 +31,7 @@ class InferenceModel():
 
 class BackendInferenceModel(InferenceModel):
     def __init__(self, device='cuda'):
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
         super(BackendInferenceModel, self).__init__(device=device)
 
     def predict_from_raw(self, json_data):
@@ -42,7 +43,6 @@ class BackendInferenceModel(InferenceModel):
 
 
 # instantiate the app
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
 inference_model = BackendInferenceModel()
 app = Flask(__name__)
 app.config.from_object(__name__)
