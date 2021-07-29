@@ -24,7 +24,7 @@ class TextInferenceModel():
                                                        do_lower_case=True)
         bert_config = BertConfig(self.config_path)
         self.model = BertBasic(bert_config, num_labels=10)
-        self.model.load_state_dict(torch.load(self.weight_path,map_location=device))
+        self.model.load_state_dict(torch.load(self.weight_path, map_location=device))
         self.model.to(device)
         self.model.eval()
         self.label_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
