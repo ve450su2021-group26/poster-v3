@@ -22,7 +22,7 @@ class ImageInferenceModel():
         self.net = timm.create_model('efficientnet_b0', num_classes=9)
         self.net.to(device)
         self.net.eval()
-        self.net.load_state_dict(torch.load(weight_path))
+        self.net.load_state_dict(torch.load(weight_path, map_location=device))
         self.device = device
 
     def predict(self, image, top_k=3):
