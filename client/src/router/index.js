@@ -19,11 +19,6 @@ export default new Router({
       component: () => import('../views/About.vue'),
     },
 	{
-      path: '/gallery_test',
-      name: 'gallery_test',
-      component: () => import('../components/gallery_test.vue'),
-    },
-	{
       path: '/animation/Simple',
       name: 'simple',
       component: () => import('../components/animation/Simple.vue'),
