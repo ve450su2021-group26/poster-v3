@@ -192,7 +192,7 @@ export default {
     }
   },
   mounted () {
-    //this.init(4,7,8)
+    //this.init(1,2,3)
   }
 }
 </script>

@@ -18,12 +18,27 @@ export default new Router({
       name: 'about',
       component: () => import('../views/About.vue'),
     },
+	{
+      path: '/gallery_test',
+      name: 'gallery_test',
+      component: () => import('../components/gallery_test.vue'),
+    },
+	{
+      path: '/animation/Simple',
+      name: 'simple',
+      component: () => import('../components/animation/Simple.vue'),
+    },
     {
       path: '/animation/Business',
       name: 'business',
       component: () => import('../components/animation/Business'),
     },
     {
+      path: '/animation/Heartwarming',
+      name: 'heartwarming',
+      component: () => import('../components/animation/Heartwarming.vue'),
+    },
+	{
       path: '/animation/Cool',
       name: 'cool',
       component: () => import('../components/animation/Cool'),
