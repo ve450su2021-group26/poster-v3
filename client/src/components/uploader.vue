@@ -38,8 +38,8 @@
         </b-form>
 
         <template #modal-footer>
-          <b-button type="reset" variant="outline-danger" @click="modalShow = !modalShow">
-            Cancel
+          <b-button type="reset" variant="outline-danger" @click="onReset()">
+            Reset
           </b-button>
           <b-button type="submit" variant="success" @click="onSubmit(form)">
             Submit
@@ -107,22 +107,16 @@ export default {
         Body: file,
         // eslint-disable-next-line no-unused-vars
         onProgress(progressData, callback) {
-          // console.log(JSON.stringify(progressData));
-          // console.log('This is callback');
-          // console.log(callback);
         },
       },
       // eslint-disable-next-line no-unused-vars
       (err, data) => {
-        // console.log(err, data);
-        // this.form.img["location"] = data.Location;
       });
       cos.getObjectUrl({
         Key: file.name,
         Bucket,
         Sign: false,
         Region: 'ap-shanghai',
-        // eslint-disable-next-line no-unused-vars
       }, (err, data) => {
 
       });
@@ -134,6 +128,11 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         });
+    },
+    initForm(){
+      this.form.img = null;
+      this.form.text = '';
+      this.form.color = '';
     },
     onSubmit(form) {
       if (!form.img) {
@@ -150,7 +149,12 @@ export default {
       this.load.text = form.text;
       this.load.color = form.color;
       this.postLoad(this.load);
+      this.initForm();
     },
+    onReset() {
+      this.modalShow = false;
+      this.initForm();
+    }
   },
 
 };
