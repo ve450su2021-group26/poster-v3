@@ -152,7 +152,6 @@ export default {
       this.initForm();
     },
     onReset() {
-      this.modalShow = false;
       this.initForm();
     }
   },
