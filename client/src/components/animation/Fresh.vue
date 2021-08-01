@@ -16,7 +16,9 @@ export default {
         gyroControls: false,
         minHeight: 880.00,
         minWidth: 200.00,
-		speed: 1.00
+		speed: 1.00,
+		skyColor: 0x68b8d7,
+		cloudColor: 0xadc1de
       }
     }
   },
@@ -25,9 +27,13 @@ export default {
       let that = this;
       var controls = new function(){
         this.speed = 1.00;
+		this.skyColor = 0x68b8d7;
+		this.cloudColor = 0xadc1de;
       }
       var gui = new GUI();
       gui.add(controls, 'speed', 0, 3);
+	  gui.addColor(controls, 'skyColor');
+	  gui.addColor(controls, 'cloudColor');
       function copyObj(obj){
         var newobj = {};
         for ( var key in obj) {
@@ -36,15 +42,19 @@ export default {
         return newobj;
       }
       that.$refs.vanta.options.speed=controls.speed;
+	  that.$refs.vanta.options.skyColor=controls.skyColor;
+	  that.$refs.vanta.options.cloudColor=controls.cloudColor;
       var old_options = copyObj(this.$refs.vanta.options);
       var tick = 0;
       function animate(){
         tick+=1;
         requestAnimationFrame(animate);
         that.$refs.vanta.options.speed=controls.speed;
+		that.$refs.vanta.options.skyColor=controls.skyColor;
+      	that.$refs.vanta.options.cloudColor=controls.cloudColor;
         if(tick%100===0){
           console.log(tick);
-          if(old_options.speed!==that.$refs.vanta.options.speed){
+          if(old_options.skyColor!==that.$refs.vanta.options.skyColor||old_options.cloudColor!==that.$refs.vanta.options.cloudColor||old_options.speed!==that.$refs.vanta.options.speed){
             console.log("变化");
             that.refresh=!that.refresh;
             //that.$destroy();

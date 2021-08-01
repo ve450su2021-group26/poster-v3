@@ -29,10 +29,12 @@ export default {
       var controls = new function(){
         this.size = 1.60;
         this.amplitude = 1.50;
+		this.color = 0x0;
       }
       var gui = new GUI();
       gui.add(controls, 'size', 0.1, 3);
       gui.add(controls, 'amplitude', 0, 3);
+	  gui.addColor(controls, 'color');
       function copyObj(obj){
         var newobj = {};
         for ( var key in obj) {
@@ -42,6 +44,7 @@ export default {
       }
       that.$refs.vanta.options.size=controls.size;
       that.$refs.vanta.options.amplitudeFactor=controls.amplitude;
+	  that.$refs.vanta.options.backgroundColor=controls.color;
       var old_options = copyObj(this.$refs.vanta.options);
       var tick = 0;
       function animate(){
@@ -49,9 +52,10 @@ export default {
         requestAnimationFrame(animate);
         that.$refs.vanta.options.size=controls.size;
         that.$refs.vanta.options.amplitudeFactor=controls.amplitude;
+		that.$refs.vanta.options.backgroundColor=controls.color;
         if(tick%100===0){
           console.log(tick);
-          if(old_options.size!==that.$refs.vanta.options.size||old_options.amplitudeFactor!==that.$refs.vanta.options.amplitudeFactor){
+          if(old_options.backgroundColor!==that.$refs.vanta.options.backgroundColor||old_options.size!==that.$refs.vanta.options.size||old_options.amplitudeFactor!==that.$refs.vanta.options.amplitudeFactor){
             console.log("变化");
             that.refresh=!that.refresh;
             //that.$destroy();

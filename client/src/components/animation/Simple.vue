@@ -5,6 +5,7 @@
 </template>
 <script>
 import * as THREE from '../../../node_modules/three/build/three.module.js';
+import {GUI} from '../../../node_modules/three/examples/jsm/libs/dat.gui.module.js';
 //import SimplexNoise from '../../../node_modules/simplex-noise/simplex-noise.js';
 export default {
   name: 'simple',
@@ -13,7 +14,16 @@ export default {
       let light1, light2, light3, light4;
       let renderer, scene, camera;
       let width, height, wWidth, wHeight;
-
+	  let light1_color = Math.random() * 0xffffff;
+      let light2_color = Math.random() * 0xffffff;
+      let light3_color = Math.random() * 0xffffff;
+      let light4_color = Math.random() * 0xffffff;
+	  let controls = new function(){
+            this.light1 = light1_color;
+            this.light2 = light2_color;
+            this.light3 = light3_color;
+            this.light4 = light4_color;
+      }
       let plane;
       //the original simplex-noise js does not export the default variables, need to export them
       var SimplexNoise = require('simplex-noise');
@@ -65,24 +75,32 @@ export default {
 
         // light = new THREE.AmbientLight(conf.ambientColor);
         // scene.add(light);
-
-        light1 = new THREE.PointLight(Math.random() * 0xffffff, 0.9, lightDistance);
+		light1_color = Math.random() * 0xffffff;
+        light2_color = Math.random() * 0xffffff;
+        light3_color = Math.random() * 0xffffff;
+        light4_color = Math.random() * 0xffffff;
+		let gui = new GUI();
+		gui.addColor(controls, 'light1');
+		gui.addColor(controls, 'light2');
+		gui.addColor(controls, 'light3');
+		gui.addColor(controls, 'light4');
+        light1 = new THREE.PointLight(light1_color, 0.9, lightDistance);
         light1.position.set(0, y, r);
         scene.add(light1);
-        light2 = new THREE.PointLight(Math.random() * 0xffffff, 0.9, lightDistance);
+        light2 = new THREE.PointLight(light2_color, 0.9, lightDistance);
         light2.position.set(0, -y, -r);
         scene.add(light2);
-        light3 = new THREE.PointLight(Math.random() * 0xffffff, 0.9, lightDistance);
+        light3 = new THREE.PointLight(light3_color, 0.9, lightDistance);
         light3.position.set(r, y, 0);
         scene.add(light3);
-        light4 = new THREE.PointLight(Math.random() * 0xffffff, 0.9, lightDistance);
+        light4 = new THREE.PointLight(light4_color, 0.9, lightDistance);
         light4.position.set(-r, y, 0);
         scene.add(light4);
       }
 
       function animate() {
         requestAnimationFrame(animate);
-
+		
         animatePlane();
         animateLights();
 
@@ -104,12 +122,17 @@ export default {
         const d = 50;
         light1.position.x = Math.sin(time * 0.1) * d;
         light1.position.z = Math.cos(time * 0.2) * d;
-        light2.position.x = Math.cos(time * 0.3) * d;
-        light2.position.z = Math.sin(time * 0.4) * d;
-        light3.position.x = Math.sin(time * 0.5) * d;
+		light1.color.setHex(controls.light1);
+		//console.log(light1.color);
+        light2.position.x = Math.sin(time * 0.3) * d;
+		light2.position.z = Math.sin(time * 0.4) * d;
+        light2.color.setHex(controls.light2);
+		light3.position.x = Math.sin(time * 0.5) * d;
         light3.position.z = Math.sin(time * 0.6) * d;
+		light3.color.setHex(controls.light3);
         light4.position.x = Math.sin(time * 0.7) * d;
         light4.position.z = Math.cos(time * 0.8) * d;
+		light4.color.setHex(controls.light4);
       }
 
       function updateSize() {
