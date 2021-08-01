@@ -5,6 +5,7 @@
 </template>
 <script>
 import * as THREE from '../../../node_modules/three/build/three.module.js';
+import {GUI} from '../../../node_modules/three/examples/jsm/libs/dat.gui.module.js';
 export default {
 	name: 'heartwarming',
 	methods: {
@@ -28,7 +29,8 @@ export default {
 
         	const material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube, refractionRatio: 0.95 } );
 			//const material = new THREE.MeshBasicMaterial( { color: 0xffffff} );
-
+			let gui = new GUI();
+			gui.add(material, 'refractionRatio', 0.5, 0.95);
         	for ( let i = 0; i < 1000; i ++ ) {
 
             	const mesh = new THREE.Mesh( geometry, material );

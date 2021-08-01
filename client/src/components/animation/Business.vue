@@ -33,11 +33,13 @@ export default {
 	  	this.zoom = 1.00;
 		this.shine = 64.00;
 		this.height = 17.00;
+		this.color = 0x1b5e;
 	  }
 	  var gui = new GUI();
 	  gui.add(controls, 'shine', 0, 100);
 	  gui.add(controls, 'height', 0, 30);
 	  gui.add(controls, 'zoom', 0.7, 1.8);
+	  gui.addColor(controls, 'color');
 	  function copyObj(obj){
       	var newobj = {};
       	for ( var key in obj) {
@@ -48,6 +50,7 @@ export default {
 	  that.$refs.vanta.options.zoom=controls.zoom;
       that.$refs.vanta.options.waveHeight=controls.height;
       that.$refs.vanta.options.shininess=controls.shine;
+	  that.$refs.vanta.options.color=controls.color;
 	  var old_options = copyObj(this.$refs.vanta.options);
 	  var tick = 0;
 	  function animate(){
@@ -56,9 +59,10 @@ export default {
 		that.$refs.vanta.options.zoom=controls.zoom;
 		that.$refs.vanta.options.waveHeight=controls.height;
 		that.$refs.vanta.options.shininess=controls.shine;
+		that.$refs.vanta.options.color=controls.color;
 		if(tick%100===0){
 		  console.log(tick);
-		  if(old_options.zoom!==that.$refs.vanta.options.zoom||old_options.waveHeight!==that.$refs.vanta.options.waveHeight||old_options.shininess!==that.$refs.vanta.options.shininess){
+		  if(old_options.color!==that.$refs.vanta.options.color||old_options.zoom!==that.$refs.vanta.options.zoom||old_options.waveHeight!==that.$refs.vanta.options.waveHeight||old_options.shininess!==that.$refs.vanta.options.shininess){
 		  	console.log("变化");
 		  	that.refresh=!that.refresh;
 		  	//that.$destroy();

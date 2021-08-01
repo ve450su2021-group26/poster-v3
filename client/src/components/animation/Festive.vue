@@ -35,10 +35,12 @@ export default {
       var controls = new function(){
         this.size = 1.50;
         this.speed = 7.00;
+		this.backgroundColor = 0xffffff;
       }
       var gui = new GUI();
       gui.add(controls, 'size', 0.5, 3);
       gui.add(controls, 'speed', 0, 10);
+	  gui.addColor(controls, 'backgroundColor');
       function copyObj(obj){
         var newobj = {};
         for ( var key in obj) {
@@ -48,6 +50,7 @@ export default {
       }
       that.$refs.vanta.options.birdSize=controls.size;
       that.$refs.vanta.options.speedLimit=controls.speed;
+	  that.$refs.vanta.options.backgroundColor=controls.backgroundColor;
       var old_options = copyObj(this.$refs.vanta.options);
       var tick = 0;
       function animate(){
@@ -55,9 +58,10 @@ export default {
         requestAnimationFrame(animate);
         that.$refs.vanta.options.birdSize=controls.size;
         that.$refs.vanta.options.speedLimit=controls.speed;
+		that.$refs.vanta.options.backgroundColor=controls.backgroundColor;
         if(tick%100===0){
           console.log(tick);
-          if(old_options.birdSize!==that.$refs.vanta.options.birdSize||old_options.speedLimit!==that.$refs.vanta.options.speedLimit){
+          if(old_options.backgroundColor!==that.$refs.vanta.options.backgroundColor||old_options.birdSize!==that.$refs.vanta.options.birdSize||old_options.speedLimit!==that.$refs.vanta.options.speedLimit){
             console.log("变化");
             that.refresh=!that.refresh;
             //that.$destroy();
