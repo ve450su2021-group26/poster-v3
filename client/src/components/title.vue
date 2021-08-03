@@ -27,7 +27,7 @@
       <thead>
       Results
       </thead>
-      <gallery ref="gallery"></gallery>
+      <gallery ref="gallery" :resultArr="resultArr" :key="refresh"></gallery>
       <!-- <tbody>
       <tr v-for="(c, index) in result" :key="index">
         <td>
@@ -49,7 +49,9 @@ export default {
   name: 'Title',
   data() {
     return {
+	  refresh: true,
       result: [],
+	  resultArr: [9,9,9],
       label0: "Pending",
       label1: "Pending",
       label2: "Pending",
@@ -63,7 +65,7 @@ export default {
         6: "Business", //shangwu
         7: "Cool", //xuanku
         8: "Dreamlike", //menghuan
-        9: "Loading",
+        9: "Pending",
       },
     };
   },
@@ -78,11 +80,12 @@ export default {
       axios.get(path)
         .then((res) => {
           this.result = res.data.result;
-          const resultArr = this.result.split(",");
+          this.resultArr = this.result.split(",");
           this.label0 = this.label_to_txt[resultArr[0]];
           this.label1 = this.label_to_txt[resultArr[1]];
           this.label2 = this.label_to_txt[resultArr[2]];
-          this.$refs.gallery.init(resultArr[0], resultArr[1], resultArr[2]);
+		  this.refresh = !this.refresh;
+          //this.$refs.gallery.init(resultArr[0], resultArr[1], resultArr[2]);
       
         })
         .catch((error) => {

@@ -13,11 +13,13 @@ import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/Or
 import opt from '../../node_modules/three/examples/fonts/optimer_bold.typeface.json';
 export default {
   name: 'gallery',
+  props: ["resultArr"],
   methods: {
     init: function (ind_1, ind_2, ind_3) {
-      const pointer = new THREE.Vector2();
+      //console.log(window.innerWidth, window.innerHeight);
+	  const pointer = new THREE.Vector2();
       const inter = new THREE.Group();
-      const nameList = ['Heartwarming', 'Tech', "Simple", "Festive", "Fresh", "Vintage", "Business", "Cool", "Dreamlike"];
+      const nameList = ['Heartwarming', 'Tech', "Simple", "Festive", "Fresh", "Vintage", "Business", "Cool", "Dreamlike", "Pending"];
       const candidate =  [nameList[ind_1], nameList[ind_2], nameList[ind_3]];
       let camera, scene, controls, stats, renderer, rayCaster, INTERSECTED;
       const num = 3;
@@ -90,11 +92,10 @@ export default {
       //initialize poster and light array
       for (let i = 0; i < num; i++) {
         let plane = new THREE.PlaneGeometry(5, 4, 32);
-        console.log("../three/"+candidate[i]+".png");
-        const texture = new THREE.TextureLoader().load(require("../three/"+candidate[i]+".png"));
+		const texture = new THREE.TextureLoader().load(require("../three/"+candidate[i]+".png"));
         //now just set the material and color as random
         const object = new THREE.Mesh(plane, new THREE.MeshLambertMaterial({color: 0xffffff, map: texture, emissiveIntensity: 0.5,emissive: 0xffffff, emissiveMap: texture}));
-        //set the position ans rotation of the objects
+		//set the position ans rotation of the objects
         object.position.x = 5 * Math.pow(-1, i % 2);
         object.position.y = 0;
         object.position.z = num*3+8-3*i;
@@ -153,7 +154,9 @@ export default {
         document.onclick = function (e){
           if (INTERSECTED) {
             let ind = (num*3+8-INTERSECTED.position.z)/3;
-            window.open("/animation/"+candidate[ind]);
+            if(candidate[ind]!=="Pending"){
+				window.open("/animation/"+candidate[ind]);
+			}
           }
         }
         renderer.render(scene, camera);
@@ -192,7 +195,7 @@ export default {
     }
   },
   mounted () {
-    //this.init(1,2,3)
+   	this.init(this.resultArr[0],this.resultArr[1],this.resultArr[2]);
   }
 }
 </script>
