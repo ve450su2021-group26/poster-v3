@@ -14,6 +14,7 @@ import opt from '../../node_modules/three/examples/fonts/optimer_bold.typeface.j
 export default {
   name: 'gallery',
   props: ["resultArr"],
+
   methods: {
     init: function (ind_1, ind_2, ind_3) {
       //console.log(window.innerWidth, window.innerHeight);
@@ -24,7 +25,7 @@ export default {
       let camera, scene, controls, stats, renderer, rayCaster, INTERSECTED;
       const num = 3;
       const posterPairs = [];
-      //number of the recommended posters
+      //number of the recommended posters1
       //initialize container
       let container = document.getElementById("container");
       document.body.appendChild(container);
@@ -195,7 +196,7 @@ export default {
     }
   },
   mounted () {
-   	this.init(this.resultArr[0],this.resultArr[1],this.resultArr[2]);
+   	//this.init(this.resultArr[0],this.resultArr[1],this.resultArr[2]);
   }
 }
 </script>

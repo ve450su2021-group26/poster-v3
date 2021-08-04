@@ -49,9 +49,9 @@ export default {
   name: 'Title',
   data() {
     return {
-	  refresh: true,
+	    refresh: 0,
       result: [],
-	  resultArr: [9,9,9],
+	    resultArr: [9,9,9],
       label0: "Pending",
       label1: "Pending",
       label2: "Pending",
@@ -76,16 +76,19 @@ export default {
   },
   methods: {
     getResult() {
+      // console.log('1111');
       const path = 'http://localhost:5000/algorithm';
       axios.get(path)
         .then((res) => {
           this.result = res.data.result;
           this.resultArr = this.result.split(",");
-          this.label0 = this.label_to_txt[resultArr[0]];
-          this.label1 = this.label_to_txt[resultArr[1]];
-          this.label2 = this.label_to_txt[resultArr[2]];
-		  this.refresh = !this.refresh;
-          //this.$refs.gallery.init(resultArr[0], resultArr[1], resultArr[2]);
+          // console.log(this.resultArr[0])
+          this.label0 = this.label_to_txt[this.resultArr[0]];
+          this.label1 = this.label_to_txt[this.resultArr[1]];
+          this.label2 = this.label_to_txt[this.resultArr[2]];
+		      this.$refs.gallery.init(this.resultArr[0], this.resultArr[1], this.resultArr[2]);
+          
+          
       
         })
         .catch((error) => {

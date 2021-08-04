@@ -14,7 +14,7 @@ export default {
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
-        minHeight: 880.00,
+        minHeight: 1080.00,
         minWidth: 200.00,
         highlightColor: 0x888877,
         midtoneColor: 0x886500,
